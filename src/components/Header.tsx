@@ -24,8 +24,10 @@ const Header = () => {
           <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
             Contact Us
           </a>
-          <Button variant="cta" size="sm" className="ml-4">
-            Download App
+          <Button variant="cta" size="sm" className="ml-4" asChild>
+            <a href="https://vitalswap.com" target="_blank" rel="noopener noreferrer">
+              Download App
+            </a>
           </Button>
         </nav>
       </div>

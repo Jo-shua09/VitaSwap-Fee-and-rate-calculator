@@ -13,12 +13,16 @@ const CTASection = () => {
           enjoying transparent rates and lower fees.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="cta" size="lg" className="text-lg px-8">
-            Sign Up with My SwapTag
-            <ArrowRight className="ml-2 h-5 w-5" />
+          <Button variant="cta" size="lg" className="text-lg px-8" asChild>
+            <a href="https://vitalswap.com" target="_blank" rel="noopener noreferrer">
+              Sign Up with My SwapTag
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 bg-white text-primary hover:bg-white/90">
-            Calculate My Savings
+          <Button variant="outline" size="lg" className="text-lg px-8 bg-white text-primary hover:bg-white/90" asChild>
+            <a href="#calculator">
+              Calculate My Savings
+            </a>
           </Button>
         </div>
         <p className="mt-6 text-sm text-white/75">

@@ -17,7 +17,7 @@ const Index = () => {
       <main className="flex-1">
         <section className="py-16 md:py-24 bg-background">
           <div className="container">
-            <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div id="calculator" className="text-center mb-12 max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground">
                 Transparent Fees. <span className="text-accent">Better Rates.</span>
               </h1>
@@ -33,9 +33,11 @@ const Index = () => {
             </div>
 
             <div className="text-center">
-              <Button variant="cta" size="lg" className="text-lg px-8">
-                Get the Best Rate Today
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button variant="cta" size="lg" className="text-lg px-8" asChild>
+                <a href="https://vitalswap.com" target="_blank" rel="noopener noreferrer">
+                  Get the Best Rate Today
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
             </div>
           </div>
