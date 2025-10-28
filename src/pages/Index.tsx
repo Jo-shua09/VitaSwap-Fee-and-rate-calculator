@@ -15,13 +15,13 @@ const Index = () => {
       
       {/* Hero Section with Calculator */}
       <main className="flex-1">
-        <section className="py-12 md:py-20 bg-gradient-to-br from-background via-muted/30 to-background">
+        <section className="py-16 md:py-24 bg-background">
           <div className="container">
             <div className="text-center mb-12 max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground">
                 Transparent Fees. <span className="text-accent">Better Rates.</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground mb-2">
                 See exactly what you'll pay before you send. No hidden charges, 
                 no surprises. Just honest international transfers.
               </p>
@@ -42,13 +42,19 @@ const Index = () => {
         </section>
 
         {/* Fee Structure Breakdown */}
-        <FeeBreakdown />
+        <section className="bg-white">
+          <FeeBreakdown />
+        </section>
 
         {/* Comparison vs Banks */}
-        <ComparisonSection />
+        <section className="bg-muted/40">
+          <ComparisonSection />
+        </section>
 
         {/* Trust Building */}
-        <TrustSection />
+        <section className="bg-white">
+          <TrustSection />
+        </section>
 
         {/* Final CTA */}
         <CTASection />

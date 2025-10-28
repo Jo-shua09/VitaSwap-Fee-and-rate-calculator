@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* VitalSwap Brand Colors - Navy Blue & Yellow */
-    --background: 0 0% 98%;
+    --background: 0 0% 97%;
     --foreground: 214 80% 15%;
 
     --card: 0 0% 100%;
@@ -29,7 +29,7 @@ All colors MUST be HSL.
     --secondary-foreground: 214 80% 15%;
     --secondary-dark: 38 90% 48%;
 
-    --muted: 210 30% 96%;
+    --muted: 210 20% 97%;
     --muted-foreground: 214 20% 45%;
 
     --accent: 40 95% 55%;
@@ -38,18 +38,18 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 88%;
-    --input: 214 25% 92%;
+    --border: 214 20% 90%;
+    --input: 214 20% 94%;
     --ring: 40 95% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom Design Tokens */
     --gradient-primary: linear-gradient(135deg, hsl(214, 80%, 15%), hsl(211, 70%, 35%));
     --gradient-accent: linear-gradient(135deg, hsl(38, 90%, 48%), hsl(40, 95%, 55%));
-    --shadow-soft: 0 2px 8px hsl(214 80% 15% / 0.06);
-    --shadow-medium: 0 4px 16px hsl(214 80% 15% / 0.1);
-    --shadow-strong: 0 8px 32px hsl(214 80% 15% / 0.15);
+    --shadow-soft: 0 2px 8px hsl(214 80% 15% / 0.04);
+    --shadow-medium: 0 4px 16px hsl(214 80% 15% / 0.08);
+    --shadow-strong: 0 8px 32px hsl(214 80% 15% / 0.12);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
@@ -128,7 +128,7 @@ All colors MUST be HSL.
 @layer components {
   /* Calculator Card - Enhanced Styling */
   .calculator-card {
-    @apply shadow-md hover:shadow-lg transition-shadow border-2 border-primary/10;
+    @apply shadow-sm hover:shadow-md transition-shadow border border-border;
   }
 
   /* Result Panel - Clean Data Display */
@@ -138,6 +138,6 @@ All colors MUST be HSL.
 
   /* CTA Button - High Impact */
   .cta-button {
-    @apply bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-md hover:shadow-lg transition-all;
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-sm hover:shadow-md transition-all;
   }
 }

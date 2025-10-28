@@ -3,23 +3,29 @@ import logoBlue from "@/assets/logo-blue.png";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <img src={logoBlue} alt="VitalSwap" className="h-8 w-auto" />
         </div>
-        <nav className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+        <nav className="flex items-center gap-6">
+          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
             How it Works
-          </Button>
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-            Support
-          </Button>
-          <Button variant="outline" size="sm">
-            Sign In
-          </Button>
-          <Button variant="cta" size="sm">
-            Get Started
+          </a>
+          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
+            Our Rates
+          </a>
+          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
+            Blog
+          </a>
+          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
+            FAQ
+          </a>
+          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
+            Contact Us
+          </a>
+          <Button variant="cta" size="sm" className="ml-4">
+            Download App
           </Button>
         </nav>
       </div>
