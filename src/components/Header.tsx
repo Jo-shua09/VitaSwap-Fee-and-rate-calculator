@@ -4,7 +4,7 @@ import logoBlue from "@/assets/logo-blue.png";
 const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="md:container p-[1rem] flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <img src={logoBlue} alt="VitalSwap" className="h-8 w-auto" />
         </div>

@@ -1,10 +1,5 @@
 import { Card } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2 } from "lucide-react";
 
 const feeStructure = [
@@ -29,32 +24,24 @@ const feeStructure = [
   {
     id: "local",
     title: "Local Transfers (Same Currency)",
-    fees: [
-      { tier: "All Accounts", fee: "0.2%", min: "$0.50", max: "$10.00" },
-    ],
+    fees: [{ tier: "All Accounts", fee: "0.2%", min: "$0.50", max: "$10.00" }],
   },
 ];
 
 const FeeBreakdown = () => {
   return (
     <section className="py-16 md:py-24">
-      <div className="container">
+      <div className="md:container p-[1rem]">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Transparent Fee Structure
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            No hidden charges. No surprises. Just honest, competitive pricing.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Transparent Fee Structure</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">No hidden charges. No surprises. Just honest, competitive pricing.</p>
         </div>
 
         <Card className="max-w-4xl mx-auto p-6 md:p-8">
           <Accordion type="single" collapsible className="w-full">
             {feeStructure.map((category) => (
               <AccordionItem key={category.id} value={category.id}>
-                <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                  {category.title}
-                </AccordionTrigger>
+                <AccordionTrigger className="text-lg font-semibold hover:no-underline">{category.title}</AccordionTrigger>
                 <AccordionContent>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left">

@@ -12,18 +12,17 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       {/* Hero Section with Calculator */}
       <main className="flex-1">
         <section className="py-16 md:py-24 bg-background">
-          <div className="container">
+          <div className="md:container p-[1rem]">
             <div id="calculator" className="text-center mb-12 max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground">
                 Transparent Fees. <span className="text-accent">Better Rates.</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-2">
-                See exactly what you'll pay before you send. No hidden charges, 
-                no surprises. Just honest international transfers.
+                See exactly what you'll pay before you send. No hidden charges, no surprises. Just honest international transfers.
               </p>
             </div>
 

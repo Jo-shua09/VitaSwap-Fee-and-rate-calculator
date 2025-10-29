@@ -11,13 +11,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-white py-12">
-      <div className="container">
+      <div className="md:container p-[1rem]">
         <div className="grid md:grid-cols-5 gap-8 mb-8">
           <div>
             <img src={logoWhite} alt="VitalSwap" className="h-8 w-auto mb-4" />
-            <p className="text-sm text-white/70">
-              Transparent international transfers at unbeatable rates.
-            </p>
+            <p className="text-sm text-white/70">Transparent international transfers at unbeatable rates.</p>
             <div className="flex gap-3 mt-4">
               <a href="#" className="hover:text-accent transition-colors">
                 <Facebook className="h-5 w-5" />

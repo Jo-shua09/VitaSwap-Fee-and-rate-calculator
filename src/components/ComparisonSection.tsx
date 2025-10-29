@@ -10,11 +10,9 @@ const ComparisonSection = () => {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="container">
+      <div className="md:container p-[1rem]">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            See Your Savings
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">See Your Savings</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Compare VitalSwap rates vs traditional banks. The difference adds up fast.
           </p>
@@ -48,9 +46,7 @@ const ComparisonSection = () => {
             <TrendingUp className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold mb-1">The more you send, the more you save</p>
-              <p className="text-sm text-muted-foreground">
-                Based on USD to EUR transfers. Bank comparison uses average rates from top 10 US banks.
-              </p>
+              <p className="text-sm text-muted-foreground">Based on USD to EUR transfers. Bank comparison uses average rates from top 10 US banks.</p>
             </div>
           </div>
         </Card>
