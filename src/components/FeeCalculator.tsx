@@ -3,13 +3,16 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, TrendingDown } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, TrendingDown, CheckCircle } from "lucide-react";
 
 const FeeCalculator = () => {
   const [amount, setAmount] = useState("1000");
   const [sourceCurrency, setSourceCurrency] = useState("USD");
   const [destCurrency, setDestCurrency] = useState("EUR");
   const [userType, setUserType] = useState("standard");
+  const [showModal, setShowModal] = useState(false);
 
   // Mock calculation logic
   const calculateFees = () => {
@@ -135,11 +138,79 @@ const FeeCalculator = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
-        <button className="cta-button flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all">
+        <button 
+          onClick={() => setShowModal(true)}
+          className="cta-button flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all"
+        >
           Start Swapping & Saving Now
           <ArrowRight className="h-5 w-5" />
         </button>
       </div>
+
+      <Dialog open={showModal} onOpenChange={setShowModal}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Your Transfer Summary</DialogTitle>
+            <DialogDescription>
+              Review your transfer details and start saving with VitalSwap
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 py-4">
+            <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
+              <span className="text-sm text-muted-foreground">You Send</span>
+              <span className="text-lg font-semibold">
+                {parseFloat(amount).toFixed(2)} {sourceCurrency}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
+              <span className="text-sm text-muted-foreground">Transfer Fee</span>
+              <span className="text-lg font-semibold text-destructive">
+                - {fee.toFixed(2)} {sourceCurrency}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
+              <span className="text-sm text-muted-foreground">Exchange Rate</span>
+              <span className="text-lg font-semibold">
+                1 {sourceCurrency} = {fxRate.toFixed(4)} {destCurrency}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between p-4 rounded-lg bg-primary/10 border-2 border-primary">
+              <span className="text-base font-medium">Recipient Gets</span>
+              <span className="text-2xl font-bold text-primary">
+                {payout.toFixed(2)} {destCurrency}
+              </span>
+            </div>
+
+            {savings > 0 && (
+              <div className="flex items-center gap-3 p-4 rounded-lg bg-accent/10 border border-accent">
+                <CheckCircle className="h-6 w-6 text-accent flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-accent">You Save {savings.toFixed(2)} {destCurrency}</p>
+                  <p className="text-sm text-muted-foreground">Compared to traditional banks</p>
+                </div>
+              </div>
+            )}
+
+            <div className="pt-2">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                className="w-full text-lg"
+                asChild
+              >
+                <a href="https://vitalswap.com" target="_blank" rel="noopener noreferrer">
+                  Complete Transfer on VitalSwap
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 };
