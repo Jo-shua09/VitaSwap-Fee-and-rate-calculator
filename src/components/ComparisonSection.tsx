@@ -12,8 +12,8 @@ const ComparisonSection = () => {
     <section className="py-16 md:py-24">
       <div className="md:container p-[1rem]">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">See Your Savings</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">See Your Savings</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Compare VitalSwap rates vs traditional banks. The difference adds up fast.
           </p>
         </div>

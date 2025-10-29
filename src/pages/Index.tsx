@@ -18,10 +18,10 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-background">
           <div className="md:container p-[1rem]">
             <div id="calculator" className="text-center mb-12 max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 tracking-tight text-foreground">
                 Transparent Fees. <span className="text-accent">Better Rates.</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-2">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-2">
                 See exactly what you'll pay before you send. No hidden charges, no surprises. Just honest international transfers.
               </p>
             </div>
@@ -32,10 +32,10 @@ const Index = () => {
             </div>
 
             <div className="text-center">
-              <Button variant="cta" size="lg" className="text-lg px-8" asChild>
+              <Button variant="cta" size="lg" className="text-base md:text-lg px-6 md:px-8" asChild>
                 <a href="https://vitalswap.com" target="_blank" rel="noopener noreferrer">
                   Get the Best Rate Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </a>
               </Button>
             </div>

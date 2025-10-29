@@ -48,7 +48,7 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-white/60">
           <p>© 2025 VitalSwap. All rights reserved.</p>
           <p>Regulated by Financial Conduct Authority (FCA)</p>
         </div>

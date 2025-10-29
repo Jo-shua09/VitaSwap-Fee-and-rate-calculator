@@ -8,23 +8,23 @@ const Header = () => {
         <div className="flex items-center gap-2">
           <img src={logoBlue} alt="VitalSwap" className="h-8 w-auto" />
         </div>
-        <nav className="flex items-center gap-6">
-          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
+        <nav className="flex items-center gap-4 md:gap-6">
+          <a href="#" className="text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
             How it Works
           </a>
-          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
+          <a href="#" className="text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
             Our Rates
           </a>
-          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
+          <a href="#" className="text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
             Blog
           </a>
-          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
+          <a href="#" className="text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
             FAQ
           </a>
-          <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
+          <a href="#" className="text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors hidden sm:inline-flex">
             Contact Us
           </a>
-          <Button variant="cta" size="sm" className="ml-4" asChild>
+          <Button variant="cta" size="sm" className="ml-2 md:ml-4 text-xs md:text-sm px-3 md:px-4" asChild>
             <a href="https://vitalswap.com" target="_blank" rel="noopener noreferrer">
               Download App
             </a>
