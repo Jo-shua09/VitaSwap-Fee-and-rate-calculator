@@ -40,13 +40,37 @@ export const useFeeCalculator = () => {
   const calculateFees = (amount: number, userType: string, from: string, to: string) => {
     if (!feeData || !exchangeData) return null;
 
-    // Find the appropriate fee service
-    const customerServices = feeData.Customer.products;
-    const businessServices = feeData.Business.products;
+    // Find the appropriate fee service from the API data
+    const isBusiness = userType === "business";
+    const services = isBusiness ? feeData.Business : feeData.Customer;
 
-    // For now, we'll use a simple fee calculation based on user type
-    // In a real implementation, you'd match the service based on the transaction type
-    const feePercent = userType === "premium" ? 0.003 : 0.005; // 0.3% or 0.5%
+    // Look for FX or transfer services that might apply
+    let feePercent = 0.005; // Default 0.5%
+
+    // Try to find relevant fee from API data
+    const fxServices = services["FX"] || [];
+    const payoutServices = services["Payout"] || [];
+
+    // Look for transfer fees in FX services
+    for (const service of fxServices) {
+      if (service.Service.toLowerCase().includes("buy") && service.Service.toLowerCase().includes("usd")) {
+        // Extract percentage from fee string (e.g., "FREE" or "1.5%")
+        const feeStr = service.Fee;
+        if (feeStr !== "FREE") {
+          const percentMatch = feeStr.match(/(\d+(?:\.\d+)?)%/);
+          if (percentMatch) {
+            feePercent = parseFloat(percentMatch[1]) / 100;
+            break;
+          }
+        }
+      }
+    }
+
+    // If no FX fee found, use default based on user type
+    if (feePercent === 0.005) {
+      feePercent = userType === "premium" ? 0.003 : 0.005;
+    }
+
     const fee = amount * feePercent;
 
     // Use the exchange rate from the API
