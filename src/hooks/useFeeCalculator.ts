@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fetchFees, fetchExchangeRate, FeeData, ExchangeData } from "@/services/api";
 
 export const useFeeCalculator = () => {
@@ -26,7 +26,7 @@ export const useFeeCalculator = () => {
     }
   };
 
-  const getExchangeRate = async (from: string, to: string) => {
+  const getExchangeRate = useCallback(async (from: string, to: string) => {
     try {
       const data = await fetchExchangeRate(from, to);
       setExchangeData(data);
@@ -35,7 +35,7 @@ export const useFeeCalculator = () => {
       console.error("Failed to fetch exchange rate:", err);
       return null;
     }
-  };
+  }, []);
 
   const calculateFees = (amount: number, userType: string, from: string, to: string) => {
     if (!feeData || !exchangeData) return null;

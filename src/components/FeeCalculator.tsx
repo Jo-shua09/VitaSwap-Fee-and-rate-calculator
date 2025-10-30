@@ -22,7 +22,7 @@ const FeeCalculator = () => {
     if (sourceCurrency && destCurrency) {
       getExchangeRate(sourceCurrency, destCurrency);
     }
-  }, [sourceCurrency, destCurrency, getExchangeRate]);
+  }, [sourceCurrency, destCurrency, getExchangeRate]); // getExchangeRate is now stable with useCallback
 
   // Calculate fees using real data
   const calculation = calculateFees(parseFloat(amount) || 0, userType, sourceCurrency, destCurrency);
