@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingDown, CheckCircle } from "lucide-react";
+import { ArrowRight, TrendingDown, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { useFeeCalculator } from "@/hooks/useFeeCalculator";
 
 const FeeCalculator = () => {
   const [amount, setAmount] = useState("1000");
@@ -14,27 +15,58 @@ const FeeCalculator = () => {
   const [userType, setUserType] = useState("standard");
   const [showModal, setShowModal] = useState(false);
 
-  // Mock calculation logic
-  const calculateFees = () => {
-    const baseAmount = parseFloat(amount) || 0;
-    const feePercent = userType === "premium" ? 0.003 : 0.005;
-    const fee = baseAmount * feePercent;
-    const fxRate = 0.92; // Mock rate
-    const payout = (baseAmount - fee) * fxRate;
-    const bankRate = 0.89; // Mock bank rate
-    const bankPayout = (baseAmount - baseAmount * 0.02) * bankRate;
-    const savings = bankPayout > 0 ? payout - bankPayout : 0;
+  const { feeData, exchangeData, loading, error, getExchangeRate, calculateFees } = useFeeCalculator();
 
-    return { fee, fxRate, payout, savings };
-  };
+  // Update exchange rate when currencies change
+  useEffect(() => {
+    if (sourceCurrency && destCurrency) {
+      getExchangeRate(sourceCurrency, destCurrency);
+    }
+  }, [sourceCurrency, destCurrency, getExchangeRate]);
 
-  const { fee, fxRate, payout, savings } = calculateFees();
+  // Calculate fees using real data
+  const calculation = calculateFees(parseFloat(amount) || 0, userType, sourceCurrency, destCurrency);
+
+  const { fee = 0, fxRate = 0, payout = 0, savings = 0 } = calculation || {};
+
+  if (loading) {
+    return (
+      <Card className="calculator-card p-4 md:p-6 lg:p-8">
+        <div className="flex items-center justify-center py-12">
+          <div className="flex items-center gap-3">
+            <Loader2 className="h-6 w-6 animate-spin text-primary" />
+            <span className="text-muted-foreground">Loading real-time data...</span>
+          </div>
+        </div>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card className="calculator-card p-4 md:p-6 lg:p-8">
+        <div className="flex items-center justify-center py-12">
+          <div className="flex items-center gap-3 text-destructive">
+            <AlertCircle className="h-6 w-6" />
+            <div>
+              <p className="font-semibold">Failed to load data</p>
+              <p className="text-sm text-muted-foreground">{error}</p>
+            </div>
+          </div>
+        </div>
+      </Card>
+    );
+  }
 
   return (
     <Card className="calculator-card p-4 md:p-6 lg:p-8">
       <div className="mb-4 md:mb-6">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2">Fee & FX Simulator</h2>
         <p className="text-sm md:text-base text-muted-foreground">Calculate your exact fees and see how much you save vs traditional banks</p>
+        <div className="flex items-center gap-2 mt-2 text-xs text-green-600">
+          <CheckCircle className="h-4 w-4" />
+          <span>Using real-time exchange rates and fees</span>
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 mb-8">
