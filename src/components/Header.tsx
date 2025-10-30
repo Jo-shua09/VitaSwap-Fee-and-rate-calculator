@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 import logoBlue from "@/assets/logo-blue.png";
+import logoWhite from "@/assets/logo-white.png";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:bg-background/80">
       <div className="md:container p-[1rem] flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <img src={logoBlue} alt="VitalSwap" className="h-8 w-auto" />
+          <img src={logoBlue} alt="VitalSwap" className="h-8 w-auto dark:hidden" />
+          <img src={logoWhite} alt="VitalSwap" className="h-8 w-auto hidden dark:block" />
         </div>
         <nav className="flex items-center gap-4 md:gap-6">
           <a href="#" className="text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors hidden md:inline-flex">
@@ -29,6 +32,7 @@ const Header = () => {
               Download App
             </a>
           </Button>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

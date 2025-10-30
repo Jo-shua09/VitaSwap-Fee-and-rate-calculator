@@ -1,4 +1,5 @@
 import logoWhite from "@/assets/logo-white.png";
+import logoBlue from "@/assets/logo-blue.png";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
@@ -10,12 +11,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-white py-12">
+    <footer className="bg-primary dark:bg-primary text-primary-foreground py-12">
       <div className="md:container p-[1rem]">
         <div className="grid md:grid-cols-5 gap-8 mb-8">
           <div>
-            <img src={logoWhite} alt="VitalSwap" className="h-8 w-auto mb-4" />
-            <p className="text-sm text-white/70">Transparent international transfers at unbeatable rates.</p>
+            <img src={logoWhite} alt="VitalSwap" className="h-8 w-auto mb-4 dark:block hidden" />
+            <img src={logoBlue} alt="VitalSwap" className="h-8 w-auto mb-4 dark:hidden block" />
+            <p className="text-sm text-primary-foreground/70">Transparent international transfers at unbeatable rates.</p>
             <div className="flex gap-3 mt-4">
               <a href="#" className="hover:text-accent transition-colors">
                 <Facebook className="h-5 w-5" />
@@ -38,7 +40,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-sm text-white/70 hover:text-white transition-colors">
+                    <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                       {link}
                     </a>
                   </li>
@@ -48,7 +50,7 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-white/60">
+        <div className="pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-primary-foreground/60">
           <p>© 2025 VitalSwap. All rights reserved.</p>
           <p>Regulated by Financial Conduct Authority (FCA)</p>
         </div>
